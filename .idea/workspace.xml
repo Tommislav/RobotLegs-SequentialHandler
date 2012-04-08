@@ -66,7 +66,7 @@
       <file leaf-file-name="TestSequenceHandler.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/se/salomonsson/sequence/TestSequenceHandler.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="256" column="41" selection-start="7862" selection-end="7862" vertical-scroll-proportion="0.0">
+            <state line="256" column="41" selection-start="7893" selection-end="7893" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#35#66#0" expanded="true" />
               </folding>
@@ -85,11 +85,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SequentialTask.as" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SequentialTask.as" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequentialTask.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="48" selection-start="1741" selection-end="1741" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="84" column="0" selection-start="2596" selection-end="2596" vertical-scroll-proportion="0.880141">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,10 +105,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SequenceBase.as" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SequenceBase.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequenceBase.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="6" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.13983549">
+            <state line="23" column="6" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#1212#1248#0" expanded="true" />
               </folding>
@@ -120,6 +122,9 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
@@ -299,12 +304,12 @@
   <component name="PropertiesComponent">
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/se/salomonsson/async" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.20583834" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="copyright.profiles" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Background" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="flex.debug.filter.swf.load.unload" value="true" />
@@ -622,7 +627,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/se/salomonsson/sequence/TestSequenceHandler.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="256" column="41" selection-start="7862" selection-end="7862" vertical-scroll-proportion="0.0">
+        <state line="256" column="41" selection-start="7893" selection-end="7893" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#35#66#0" expanded="true" />
           </folding>
@@ -635,13 +640,6 @@
           <folding>
             <element signature="e#1357#1388#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequentialTask.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="48" selection-start="1741" selection-end="1741" vertical-scroll-proportion="0.0">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -663,9 +661,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequenceBase.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="6" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.13983549">
+        <state line="23" column="6" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#1212#1248#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequentialTask.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="0" selection-start="2596" selection-end="2596" vertical-scroll-proportion="0.880141">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
