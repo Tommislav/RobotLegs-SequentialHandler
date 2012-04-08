@@ -2,3 +2,4 @@ out
 obj
 bin/*.swf
 temp
+build.properties
