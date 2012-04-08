@@ -3,16 +3,15 @@ It is suppose to work well together with robotlegs (version 1, it is currently r
 The code is released under MIT license.
 
 Usage:
-1. Create a new se.salomonsson.sequence.SequenceHandler - instance
+1. Create a new se.salomonsson.sequence.SequenceHandler instance
 2. Create your own Asyncronous tasks by extending se.salomonsson.sequence.SequentialTask
-2a. override exeStart() and start the operation
-2b. when task is completed, call onCompleted(). call onError(msg,id) in case of fatal error (sequence won't continue)
+2a. override exeStart() to fire up your async actions.
+2b. when task is completed, call onCompleted(). Call onError(msg,id) in case of fatal error (SequenceHandler will report error and won't continue with the rest of the tasks).
 2c. override exeCleanUp() to remove all dependencies. This is called automatically after complete, error or abort.
 2d. (optional) If your task has conditional logic for if it wants to start: override wantsToStart() and return Boolean.
 3. Call sequenceHandler.start()
 
-If you pass an instance of IInjector (Robotlegs) to the SequenceHandler, then all SequentialTasks will map their
-[Inject] tags before wantsToStart() and exeStart() is called.
+If you pass an instance of IInjector (Robotlegs) to the SequenceHandler, then [Inject] tags of each SequentialTask will be injected before wantsToStart() and exeStart() is called.
 
 If you are using Robotlegs you can use the se.salomonsson.sequence.robotlegs.SequenceCommand which will automatically
-call commandMap.detain and commandMap.release, and also listens for ContextEvent.SHUTDOWN and aborts the current sequence.
+call commandMap.detain() and commandMap.release(), and also listens for ContextEvent.SHUTDOWN and aborts the current sequence.
