@@ -1,0 +1,23 @@
+<project name="TestBuilder" basedir="." default="debug">
+	
+	<property file="build.properties"/>
+	<taskdef resource="flexTasks.tasks" classpath="${flex.task}"/>
+	<property name="version" value="0.1" />
+	
+	<target name="debug" description="Build testrunner lib for debugging">
+		<compc output="bin/AsyncHandler-v${version}.swc" target-player="${player.version}">
+			<include-sources dir="src" includes="**/*.as" />
+			<source-path path-element="src" />
+			<compiler.external-library-path dir="lib">
+				<include name="*.swc" />
+			</compiler.external-library-path>
+			<compiler.external-library-path dir="${FLEX_HOME}/frameworks/libs/player/${player.version}">
+				<include name="playerglobal.swc" />
+			</compiler.external-library-path>
+			<compiler.external-library-path dir="${FLEX_HOME}/frameworks/libs">
+				<include name="framework.swc" />
+			</compiler.external-library-path>
+		</compc>
+	</target>
+	
+</project>

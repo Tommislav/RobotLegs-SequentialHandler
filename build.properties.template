@@ -1,0 +1,3 @@
+FLEX_HOME 		= C:/bin/flex/flex4_1
+flex.task 		= ${FLEX_HOME}/ant/lib/flexTasks.jar
+player.version 	= 10.1
