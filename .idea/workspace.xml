@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59fa93e7-e896-412e-a488-4cb7b9e38757" name="Default" comment="" />
+    <list default="true" id="59fa93e7-e896-412e-a488-4cb7b9e38757" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/se/salomonsson/sequence/ParallelTask.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/se/salomonsson/sequence/robotlegs/tasks/ExecuteCommandTask.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/se/salomonsson/sequence/TestParallelTask.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seqAsyncHandler.iml" afterPath="$PROJECT_DIR$/seqAsyncHandler.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/se/salomonsson/sequence/SequenceBase.as" afterPath="$PROJECT_DIR$/src/se/salomonsson/sequence/SequenceBase.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/MainTestSuite.as" afterPath="$PROJECT_DIR$/test/MainTestSuite.as" />
+    </list>
     <ignored path="asyncSequence.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -63,12 +70,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TestSequenceHandler.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/se/salomonsson/sequence/TestSequenceHandler.as">
+      <file leaf-file-name="ParallelTask.as" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/ParallelTask.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="256" column="41" selection-start="7893" selection-end="7893" vertical-scroll-proportion="0.0">
+            <state line="83" column="28" selection-start="2748" selection-end="2748" vertical-scroll-proportion="0.66547406">
               <folding>
-                <element signature="e#35#66#0" expanded="true" />
+                <element signature="e#1329#1360#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SequenceBase.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequenceBase.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="0" selection-start="2027" selection-end="2027" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestParallelTask.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/se/salomonsson/sequence/TestParallelTask.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="95" column="36" selection-start="4278" selection-end="4278" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#1110#1163#0" expanded="false" />
+                <element signature="e#1199#1230#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -77,41 +105,17 @@
       <file leaf-file-name="SequenceCommand.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/robotlegs/SequenceCommand.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="0" selection-start="1860" selection-end="1860" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#1357#1388#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SequentialTask.as" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequentialTask.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="0" selection-start="2596" selection-end="2596" vertical-scroll-proportion="0.880141">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SequenceHandler.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequenceHandler.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="28" selection-start="1105" selection-end="1105" vertical-scroll-proportion="0.0">
+            <state line="53" column="74" selection-start="2116" selection-end="2116" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SequenceBase.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequenceBase.as">
+      <file leaf-file-name="SequentialTask.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequentialTask.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="6" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#1212#1248#0" expanded="true" />
-              </folding>
+            <state line="75" column="42" selection-start="2485" selection-end="2485" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -129,8 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/test/se/salomonsson/robotlegs/async/TestSequentialAsyncHandler.as" />
-        <option value="$PROJECT_DIR$/src/se/salomonsson/robotlegs/async/SequenceError.as" />
         <option value="$PROJECT_DIR$/src/se/salomonsson/robotlegs/async/SequenceBase.as" />
         <option value="$PROJECT_DIR$/src/se/salomonsson/robotlegs/async/SequentialTask.as" />
         <option value="$PROJECT_DIR$/src/se/salomonsson/robotlegs/async/SequenceHandler.as" />
@@ -140,14 +142,21 @@
         <option value="$PROJECT_DIR$/test/se/salomonsson/sequence/TestSequenceHandler.as" />
         <option value="$PROJECT_DIR$/src/se/salomonsson/sequence/robotlegs/SequenceCommand.as" />
         <option value="$PROJECT_DIR$/src/se/salomonsson/sequence/SequenceHandler.as" />
+        <option value="$PROJECT_DIR$/src/se/salomonsson/sequence/robotlegs/tasks/ExecuteCommandTask.as" />
+        <option value="$PROJECT_DIR$/src/se/salomonsson/sequence/robotlegs/tasks/DispatchSignalTask.as" />
+        <option value="$PROJECT_DIR$/test/MainTestSuite.as" />
+        <option value="$PROJECT_DIR$/src/se/salomonsson/sequence/SequenceBase.as" />
+        <option value="$PROJECT_DIR$/src/se/salomonsson/sequence/robotlegs/ParallelTask.as" />
+        <option value="$PROJECT_DIR$/test/se/salomonsson/sequence/TestParallelTask.as" />
+        <option value="$PROJECT_DIR$/src/se/salomonsson/sequence/ParallelTask.as" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1696" />
-    <option name="height" value="1036" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -191,6 +200,20 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asyncSequence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="seqAsyncHandler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -205,7 +228,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="seqAsyncHandler" />
+              <option name="myItemId" value="RobotLegs-SequentialHandler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -215,7 +238,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="seqAsyncHandler" />
+              <option name="myItemId" value="RobotLegs-SequentialHandler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -229,7 +252,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="seqAsyncHandler" />
+              <option name="myItemId" value="RobotLegs-SequentialHandler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -247,7 +270,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="seqAsyncHandler" />
+              <option name="myItemId" value="RobotLegs-SequentialHandler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sequence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stubs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asyncSequence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RobotLegs-SequentialHandler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -261,7 +306,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="seqAsyncHandler" />
+              <option name="myItemId" value="RobotLegs-SequentialHandler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -279,7 +324,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="seqAsyncHandler" />
+              <option name="myItemId" value="RobotLegs-SequentialHandler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -295,16 +340,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asyncSequence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RobotLegs-SequentialHandler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sequence" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="robotlegs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_directory_selection" value="$PROJECT_DIR$/src/se/salomonsson/async" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.20583834" />
     <property name="MemberChooser.sorted" value="false" />
@@ -314,18 +384,22 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="flex.debug.filter.swf.load.unload" value="true" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="com.intellij.javascript.flex.refactoring.moveClass.FlexMoveClassDialog.target_package">
+      <recent name="se.salomonsson.sequence" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="se.salomonsson.async" />
       <recent name="se.salomonsson" />
     </key>
   </component>
-  <component name="RunManager" selected="Flash App.seqAsyncHandler">
+  <component name="RunManager" selected="FlexUnit.MainTestSuite">
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -335,6 +409,7 @@
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
     <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" class_name="" method_name="" output_log_level="" package_name="" scope="Class">
@@ -352,6 +427,7 @@
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
         <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -369,6 +445,7 @@
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
         <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -388,6 +465,33 @@
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
         <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
@@ -422,6 +526,7 @@
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
         <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
     <configuration default="false" name="seqAsyncHandler" type="FlashRunConfigurationType" factoryName="Flash App">
@@ -475,12 +580,6 @@
       <item index="0" class="java.lang.String" itemvalue="Flash App.seqAsyncHandler" />
       <item index="1" class="java.lang.String" itemvalue="FlexUnit.MainTestSuite" />
     </list>
-    <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-    </configuration>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -515,27 +614,28 @@
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1036" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990867" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35730594" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.6431718" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35682818" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990867" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3996328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.249694" sideWeight="0.67009133" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25506938" sideWeight="0.6431718" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990867" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3996328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -599,80 +699,97 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="1" selection-start="162" selection-end="162" vertical-scroll-proportion="0.5768463">
-          <folding />
-        </state>
+        <state line="17" column="1" selection-start="162" selection-end="162" vertical-scroll-proportion="0.5768463" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/utils/EventCatcher.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="8" selection-start="1309" selection-end="1450" vertical-scroll-proportion="0.44065806">
-          <folding />
-        </state>
+        <state line="51" column="8" selection-start="1309" selection-end="1450" vertical-scroll-proportion="0.44065806" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/se/salomonsson/sequence/stubs/TaskThatReportsComplete.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="1" selection-start="288" selection-end="288" vertical-scroll-proportion="0.5055762">
-          <folding />
-        </state>
+        <state line="16" column="1" selection-start="288" selection-end="288" vertical-scroll-proportion="0.5055762" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/Status.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="42" selection-start="491" selection-end="491" vertical-scroll-proportion="0.44237918">
-          <folding />
+        <state line="14" column="42" selection-start="491" selection-end="491" vertical-scroll-proportion="0.44237918" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequenceError.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="38" selection-start="523" selection-end="524" vertical-scroll-proportion="0.37955347" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/robotlegs/tasks/ExecuteCommandTask.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="26" selection-start="1684" selection-end="1684" vertical-scroll-proportion="0.6994633">
+          <folding>
+            <element signature="e#1225#1263#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/MainTestSuite.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="53" selection-start="426" selection-end="426" vertical-scroll-proportion="0.28878823">
+          <folding>
+            <element signature="e#13#61#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/se/salomonsson/sequence/TestSequenceHandler.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="256" column="41" selection-start="7893" selection-end="7893" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#35#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/robotlegs/SequenceCommand.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="1860" selection-end="1860" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#1357#1388#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequenceError.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="38" selection-start="523" selection-end="524" vertical-scroll-proportion="0.37955347">
-          <folding>
-            <element signature="e#1110#1141#0" expanded="true" />
-          </folding>
+        <state line="257" column="27" selection-start="7909" selection-end="7909" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequenceHandler.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="28" selection-start="1105" selection-end="1105" vertical-scroll-proportion="0.0">
+        <state line="16" column="28" selection-start="1105" selection-end="1105" vertical-scroll-proportion="0.030411448">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequentialTask.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="42" selection-start="2485" selection-end="2485" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequenceBase.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="6" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.0">
+        <state line="46" column="0" selection-start="2027" selection-end="2027" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/robotlegs/SequenceCommand.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="74" selection-start="2116" selection-end="2116" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/se/salomonsson/sequence/TestParallelTask.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="36" selection-start="4278" selection-end="4278" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#1212#1248#0" expanded="true" />
+            <element signature="e#1110#1163#0" expanded="false" />
+            <element signature="e#1199#1230#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/SequentialTask.as">
+    <entry file="file://$PROJECT_DIR$/src/se/salomonsson/sequence/ParallelTask.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="0" selection-start="2596" selection-end="2596" vertical-scroll-proportion="0.880141">
+        <state line="83" column="28" selection-start="2748" selection-end="2748" vertical-scroll-proportion="0.66547406">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1329#1360#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -707,6 +824,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>playerglobal10.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -718,7 +836,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>4.1.0</last-edited>
+          <last-edited>4.5.1.2132</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -730,12 +848,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>seqAsyncHandler</last-edited>
+          <last-edited>flexunit|seqAsyncHandler</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

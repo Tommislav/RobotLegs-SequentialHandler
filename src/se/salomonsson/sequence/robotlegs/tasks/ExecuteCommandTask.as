@@ -17,30 +17,27 @@
  */
 
 /**
- * Base class for all sequence classes.
- * 
- * User: Tommy
+ * Executes 
+ * @author Tommy Salomonsson, Quickspin AB
  */
-package se.salomonsson.sequence {
-	import flash.events.EventDispatcher;
-	import flash.utils.getQualifiedClassName;
+package se.salomonsson.sequence.robotlegs.tasks {
+	import org.robotlegs.core.ICommandMap;
 
-	public class SequenceBase extends EventDispatcher {
+	import se.salomonsson.sequence.SequentialTask;
 
-		protected var _status:String = Status.NOT_STARTED;
-		public final function get status():String 			{ return _status; }
-		public final function get isRunning():Boolean 		{ return _status == Status.RUNNING; }
-		public final function get isStarted():Boolean 		{ return _status != Status.NOT_STARTED; }
-		public final function get isCompleted():Boolean 	{ return _status == Status.COMPLETED; }
-
-		private var _name:String = "";
-		public function setName(name:String):void { _name = name; }
-		public function get name():String { return _name == "" ? getQualifiedClassName(this) : _name; }
+	public class ExecuteCommandTask extends SequentialTask {
 		
-		public function debug():String
-		{
-			return "["+name+"] status: " + _status;
+		[Inject] public var commandMap:ICommandMap;
+		private var _classToExecute:Class;
+		
+		public function ExecuteCommandTask(commandClassToExecute:Class) {
+			_classToExecute = commandClassToExecute;
 		}
-		
+
+
+		override protected function exeStart():void {
+			commandMap.execute(_classToExecute);
+			onCompleted();
+		}
 	}
 }

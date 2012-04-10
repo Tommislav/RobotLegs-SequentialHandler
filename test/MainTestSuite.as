@@ -1,5 +1,6 @@
 ﻿package  
 {
+	import se.salomonsson.sequence.TestParallelTask;
 	import se.salomonsson.sequence.TestSequenceHandler;
 	
 	
@@ -13,7 +14,7 @@
 	{
 		
 		public var asyncTest:TestSequenceHandler;
-		
+		public var testParallelTask:TestParallelTask;
 		
 		/* Examples!
 		

@@ -7,6 +7,9 @@
           <option name="INDENT_PACKAGE_CHILDREN" value="1" />
           <option name="ALIGN_OBJECT_PROPERTIES" value="2" />
         </ECMA4CodeStyleSettings>
+        <XML>
+          <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
+        </XML>
         <codeStyleSettings language="ECMA Script Level 4">
           <indentOptions>
             <option name="USE_TAB_CHARACTER" value="true" />
