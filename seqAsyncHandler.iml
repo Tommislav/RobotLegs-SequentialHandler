@@ -9,7 +9,7 @@
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="4.5.1" />
+          <sdk name="4.5.1.2132" />
         </dependencies>
         <compiler-options />
         <packaging-air-desktop />
@@ -23,7 +23,7 @@
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="4.5.1" />
+          <sdk name="4.5.1.2132" />
         </dependencies>
         <compiler-options>
           <option name="resourceFilesMode" value="None" />
@@ -43,7 +43,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/obj" />
     </content>
-    <orderEntry type="jdk" jdkName="4.5.1" jdkType="__CompositeFlexSdk__" />
+    <orderEntry type="jdk" jdkName="4.5.1.2132" jdkType="__CompositeFlexSdk__" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
   </component>
