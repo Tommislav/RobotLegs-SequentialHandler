@@ -37,8 +37,17 @@ package se.salomonsson.sequence.robotlegs
 
 	public class SequenceCommand extends Command
 	{
+		public static var USE_DEBUG:Boolean = false;
+		
 		[PostConstruct]
-		public function createSequenceHandler():void { _sequenceHandler = new SequenceHandler(injector); }
+		public function createSequenceHandler():void 
+		{ 
+			_sequenceHandler = new SequenceHandler(injector);
+			_sequenceHandler.setName(String(this));
+			if (USE_DEBUG)
+				_sequenceHandler.debugMessagesEnabled = true;
+			
+		}
 		private var _sequenceHandler:SequenceHandler;
 
 

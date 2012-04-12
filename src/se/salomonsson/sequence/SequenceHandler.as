@@ -41,6 +41,7 @@ package se.salomonsson.sequence
 		private var _currentTask:SequentialTask;
 
 		private var _error:SequenceError;
+		private var _debugMessagesEnabled:Boolean = false;
 
 		public function get sequenceError():SequenceError { return _error; }
 
@@ -124,12 +125,15 @@ package se.salomonsson.sequence
 
 				if (_currentTask.wantsToStart())
 				{
+					debugStatus("startTask", _currentTask);
 					_currentTask.addEventListener(SequentialTask.TASK_COMPLETE, onTaskComplete);
 					_currentTask.addEventListener(SequentialTask.TASK_ERROR, onTaskError);
 					_currentTask.start();
 				}
 				else
 				{
+					debugStatus("skipTask", _currentTask);
+					
 					_currentTask.skip();
 					startNextTask();
 				}
@@ -137,6 +141,7 @@ package se.salomonsson.sequence
 			else
 			{
 				// SEQUENCE COMPLETE
+				debugStatus("sequenceComplete");
 				onSequenceCompleted();
 			}
 		}
@@ -163,12 +168,14 @@ package se.salomonsson.sequence
 
 		private function onTaskComplete(e:Event):void
 		{
+			debugStatus("taskCompleted", _currentTask);
 			startNextTask();
 		}
 
 		private function onTaskError(e:ErrorEvent):void
 		{
 			_error = new SequenceError(_currentTask.name, e.text, e.errorID);
+			debugStatus("taskError", _currentTask);
 			onSequenceError();
 		}
 
@@ -199,6 +206,25 @@ package se.salomonsson.sequence
 
 			return dbg;
 		}
+		
+		public function get debugMessagesEnabled():Boolean { return _debugMessagesEnabled; }
+		public function set debugMessagesEnabled(flag:Boolean):void 
+		{
+			_debugMessagesEnabled = flag;
+		}
+		
+		private function debugStatus(event:String, task:SequentialTask=null):void
+		{
+			if (_debugMessagesEnabled)
+			{
+				var msg:String = "[SequenceHandler (" + name + ")] :: " + event + " (" + _currentIndex +"/" + _taskSequence.length + ")";
+				if (task != null)
+					msg += " :: " + task.name;
+				
+				trace(msg);
+			}
+		}
+		
 		
 		public function get numTasks():int { return (_taskSequence != null) ? _taskSequence.length : 0; }
 	}
