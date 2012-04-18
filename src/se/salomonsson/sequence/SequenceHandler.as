@@ -19,9 +19,11 @@
 
 package se.salomonsson.sequence
 {
+	import flash.display.Stage;
 	import flash.events.ErrorEvent;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
+	import flash.events.KeyboardEvent;
 
 	import org.robotlegs.core.IInjector;
 
@@ -44,8 +46,14 @@ package se.salomonsson.sequence
 		private var _debugMessagesEnabled:Boolean = false;
 
 		public function get sequenceError():SequenceError { return _error; }
-
-
+		
+		private static var _DEBUG_STAGE:Stage;
+		public static function set debugStage(s:Stage):void 
+		{ 
+			if (s != null) 
+				_DEBUG_STAGE = s; 
+		}
+		
 		public function SequenceHandler(injector:IInjector = null)
 		{
 			_injector = injector;
@@ -69,6 +77,7 @@ package se.salomonsson.sequence
 
 			if (_status != Status.RUNNING)
 			{
+				setupKeyboardDebug();
 				_error = null;
 				_status = Status.RUNNING;
 				_currentIndex = 0;
@@ -87,6 +96,8 @@ package se.salomonsson.sequence
 
 				if (_currentTask)
 					_currentTask.abort();
+				
+				onSequenceAborted();
 			}
 		}
 
@@ -115,6 +126,7 @@ package se.salomonsson.sequence
 			{
 				_currentTask.removeEventListener(SequentialTask.TASK_COMPLETE, onTaskComplete);
 				_currentTask.removeEventListener(SequentialTask.TASK_ERROR, onTaskError);
+				_currentTask.removeEventListener(SequentialTask.TASK_ABORT, onTaskAbort);
 				_currentTask = null;
 			}
 
@@ -128,6 +140,7 @@ package se.salomonsson.sequence
 					debugStatus("startTask", _currentTask);
 					_currentTask.addEventListener(SequentialTask.TASK_COMPLETE, onTaskComplete);
 					_currentTask.addEventListener(SequentialTask.TASK_ERROR, onTaskError);
+					_currentTask.addEventListener(SequentialTask.TASK_ABORT, onTaskAbort);
 					_currentTask.start();
 				}
 				else
@@ -141,7 +154,6 @@ package se.salomonsson.sequence
 			else
 			{
 				// SEQUENCE COMPLETE
-				debugStatus("sequenceComplete");
 				onSequenceCompleted();
 			}
 		}
@@ -160,7 +172,7 @@ package se.salomonsson.sequence
 				if (!currentTask.initiated)
 				{
 					currentTask.initiated = true,
-							_injector.injectInto(currentTask);
+					_injector.injectInto(currentTask);
 				}
 			}
 		}
@@ -178,19 +190,35 @@ package se.salomonsson.sequence
 			debugStatus("taskError", _currentTask);
 			onSequenceError();
 		}
-
-
+		
+		private function onTaskAbort(e:Event):void
+		{
+			debugStatus("taskAbortsSequence", _currentTask);
+			abort();
+		}
+		
 		
 		private function onSequenceCompleted():void
 		{
 			_status = Status.COMPLETED;
+			
+			debugStatus("sequenceComplete");
+			teardownKeyboardDebug();
+			
 			dispatchEvent(new Event(Event.COMPLETE));
 		}
 		
 		private function onSequenceError():void
 		{
 			_status = Status.ERROR;
-			dispatchEvent(new ErrorEvent(ErrorEvent.ERROR, false, false, "Error in sequence: " + name + "\n" +_error.errorText, _error.errorId))
+			teardownKeyboardDebug();
+			
+			dispatchEvent(new ErrorEvent(ErrorEvent.ERROR, false, false, "Error in sequence: " + name + "\n" +_error.errorText, _error.errorId));
+		}
+		
+		private function onSequenceAborted():void
+		{
+			teardownKeyboardDebug();
 		}
 		
 		
@@ -200,9 +228,9 @@ package se.salomonsson.sequence
 		 */
 		override public function debug():String
 		{
-			var dbg:String = super.debug();
+			var dbg:String = super.debug() + "\n";
 			for each(var task:SequentialTask in _taskSequence)
-				dbg += "   " + task.debug();
+				dbg += "   " + task.debug() + "\n";
 
 			return dbg;
 		}
@@ -225,6 +253,24 @@ package se.salomonsson.sequence
 			}
 		}
 		
+		private function setupKeyboardDebug():void
+		{
+			if (_DEBUG_STAGE)
+				_DEBUG_STAGE.addEventListener(KeyboardEvent.KEY_UP, onKeyboardDebug);
+		}
+		
+		private function teardownKeyboardDebug():void
+		{
+			if (_DEBUG_STAGE)
+				_DEBUG_STAGE.removeEventListener(KeyboardEvent.KEY_UP, onKeyboardDebug);
+		}
+		
+		private function onKeyboardDebug(e:KeyboardEvent):void
+		{
+			var keycodeF1:uint = 112;
+			if (e.keyCode == keycodeF1)
+				trace(debug());
+		}
 		
 		public function get numTasks():int { return (_taskSequence != null) ? _taskSequence.length : 0; }
 	}

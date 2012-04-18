@@ -271,6 +271,21 @@ package se.salomonsson.sequence
 			
 			assertThat(task1.status, equalTo(Status.ABORTED));
 		}
+		
+		[Test]
+		public function testAbortInsideTask():void
+		{
+			var task1:TaskWithManualTriggers = new TaskWithManualTriggers();
+			var task2:TaskWithManualTriggers = new TaskWithManualTriggers();
+			addTask(task1);
+			addTask(task2);
+			_sequenceHandler.start();
+			task1.callAbortRestOfSequence();
+			
+			var statusArray:Array = [_sequenceHandler.status, task1.status, task2.status];
+			
+			assertThat(statusArray, array(Status.ABORTED, Status.ABORTED, Status.NOT_STARTED));
+		}
 	}
 
 }

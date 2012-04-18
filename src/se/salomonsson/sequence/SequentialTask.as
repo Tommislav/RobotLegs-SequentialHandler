@@ -31,6 +31,7 @@ package se.salomonsson.sequence
 	{
 		public static const TASK_COMPLETE:String = "TaskSequence::taskComplete";
 		public static const TASK_ERROR:String = "TaskSequence::taskError";
+		public static const TASK_ABORT:String = "TaskSequence::taskAbort";
 
 
 		// optimize RL-injections
@@ -52,6 +53,11 @@ package se.salomonsson.sequence
 		protected function exeCleanUp():void {} // called both after complete, abort and error
 
 
+		protected final function abortThisTaskAndRestOfSequence():void
+		{
+			dispatchEvent(new Event(TASK_ABORT));
+		}
+		
 		protected final function onCompleted():void
 		{
 			_status = Status.COMPLETED;

@@ -24,6 +24,10 @@ package se.salomonsson.sequence.stubs
 			onError(errorMessage, errorId);
 		}
 		
+		public function callAbortRestOfSequence():void
+		{
+			abortThisTaskAndRestOfSequence();
+		}
 		
 		override public function wantsToStart():Boolean 
 		{
