@@ -37,6 +37,8 @@ package se.salomonsson.sequence {
 		private var _runningTasks:Vector.<SequentialTask>;
 		private var _completedTasks:Vector.<SequentialTask>;
 		
+		private var _isAborted:Boolean;
+		
 		public function ParallelTask(...sequentialTasks) {
 			
 			_allTasks = new Vector.<SequentialTask>();
@@ -64,10 +66,14 @@ package se.salomonsson.sequence {
 
 
 		override protected function exeAbort():void {
+			_isAborted = true;
 			abortSubTasks();
 		}
 
 		private function startSubtask(task:SequentialTask):void {
+			
+			if (_isAborted)
+				return;
 			
 			if (injector != null)
 				injector.injectInto(task);
@@ -76,11 +82,12 @@ package se.salomonsson.sequence {
 			{
 				task.addEventListener(SequentialTask.TASK_COMPLETE, onSubTaskCompleted);
 				task.addEventListener(SequentialTask.TASK_ERROR, onSubTaskError);
+				task.addEventListener(SequentialTask.TASK_ABORT, onAbortCalledFromSubTask);
 				_runningTasks.push(task);
 				task.start();
 			}
 			else
-				{
+			{
 				task.skip();
 				_completedTasks.push(task);
 				checkAllTasksCompleted();
@@ -90,7 +97,10 @@ package se.salomonsson.sequence {
 		private function abortSubTasks():void
 		{
 			for each(var task:SequentialTask in _runningTasks)
+			{
+				removeListenersFromTask(task);
 				task.abort();
+			}
 		}
 		
 		private function onSubTaskCompleted(e:Event):void {
@@ -105,6 +115,11 @@ package se.salomonsson.sequence {
 		{
 			if (_completedTasks.length == _allTasks.length)
 				onCompleted();
+		}
+		
+		private function onAbortCalledFromSubTask(e:Event):void 
+		{
+			abortThisTaskAndRestOfSequence();
 		}
 		
 		private function onSubTaskError(e:ErrorEvent):void
@@ -123,8 +138,14 @@ package se.salomonsson.sequence {
 			if (index > -1)
 				_runningTasks.splice(index,  1);
 		}
-
-
+		
+		private function removeListenersFromTask(task:SequentialTask):void 
+		{
+			task.removeEventListener(SequentialTask.TASK_COMPLETE, onSubTaskCompleted);
+			task.removeEventListener(SequentialTask.TASK_ERROR, onSubTaskError);
+			task.removeEventListener(SequentialTask.TASK_ABORT, onAbortCalledFromSubTask);
+		}
+		
 		override public function debug():String {
 			var str:String = super.debug() + "\n";
 			for each(var task:SequentialTask in _allTasks)

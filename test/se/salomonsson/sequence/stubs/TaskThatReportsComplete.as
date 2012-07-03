@@ -8,9 +8,16 @@ package se.salomonsson.sequence.stubs
 	 */
 	public class TaskThatReportsComplete extends SequentialTask 
 	{
+		public var exeCleanupWasInvoked:Boolean;
+		
 		override protected function exeStart():void 
 		{
 			onCompleted();
+		}
+		
+		override protected function exeCleanUp():void 
+		{
+			exeCleanupWasInvoked = true;
 		}
 	}
 

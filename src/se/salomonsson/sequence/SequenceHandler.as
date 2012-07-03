@@ -68,13 +68,12 @@ package se.salomonsson.sequence
 
 		/**
 		 * Starts the sequence by invoking start() on the first sequentialTask
+		 * Currently no support for re-running sequences...
 		 */
 		public function start():void
 		{
-			// TODO: What should happen if we want to run a sequence several times??
-
 			// if status != NOT_RUNNING : reset all tasks and run again...?
-
+			
 			if (_status != Status.RUNNING)
 			{
 				setupKeyboardDebug();
@@ -94,8 +93,10 @@ package se.salomonsson.sequence
 			{
 				_status = Status.ABORTED;
 
-				if (_currentTask)
+				if (_currentTask){
+					removeListenersFromTask(_currentTask);
 					_currentTask.abort();
+				}
 				
 				onSequenceAborted();
 			}
@@ -109,11 +110,10 @@ package se.salomonsson.sequence
 		{
 			_status = Status.DESTROYED;
 			
-			if (_currentTask != null)
+			if (_currentTask != null && _currentTask.status == Status.RUNNING)
 			{
+				removeListenersFromTask(_currentTask);
 				_currentTask.abort();
-				_currentTask.removeEventListener(SequentialTask.TASK_COMPLETE, onTaskComplete);
-				_currentTask.removeEventListener(SequentialTask.TASK_ERROR, onTaskError);
 				_currentTask = null;
 			}
 			
@@ -124,10 +124,7 @@ package se.salomonsson.sequence
 		{
 			if (_currentTask != null)
 			{
-				_currentTask.removeEventListener(SequentialTask.TASK_COMPLETE, onTaskComplete);
-				_currentTask.removeEventListener(SequentialTask.TASK_ERROR, onTaskError);
-				_currentTask.removeEventListener(SequentialTask.TASK_ABORT, onTaskAbort);
-				_currentTask = null;
+				removeListenersFromTask(_currentTask);
 			}
 
 			if (_currentIndex < _taskSequence.length)
@@ -135,7 +132,7 @@ package se.salomonsson.sequence
 				_currentTask = getNextTaskAndMovePointer();
 				initiateTask(_currentTask);
 
-				if (_currentTask.wantsToStart())
+				if (_currentTask.internalWantsToStart())
 				{
 					debugStatus("startTask", _currentTask);
 					_currentTask.addEventListener(SequentialTask.TASK_COMPLETE, onTaskComplete);
@@ -156,6 +153,13 @@ package se.salomonsson.sequence
 				// SEQUENCE COMPLETE
 				onSequenceCompleted();
 			}
+		}
+
+		private function removeListenersFromTask(task:SequentialTask):void {
+			task.removeEventListener(SequentialTask.TASK_COMPLETE, onTaskComplete);
+			task.removeEventListener(SequentialTask.TASK_ERROR, onTaskError);
+			task.removeEventListener(SequentialTask.TASK_ABORT, onTaskAbort);
+			task = null;
 		}
 
 		private function getNextTaskAndMovePointer():SequentialTask
@@ -218,6 +222,7 @@ package se.salomonsson.sequence
 		
 		private function onSequenceAborted():void
 		{
+			dispatchEvent(new Event(Status.ABORTED));
 			teardownKeyboardDebug();
 		}
 		

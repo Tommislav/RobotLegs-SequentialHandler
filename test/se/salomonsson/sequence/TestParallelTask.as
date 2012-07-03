@@ -40,6 +40,8 @@
  */
 package se.salomonsson.sequence {
 	import flash.events.ErrorEvent;
+	import se.salomonsson.sequence.stubs.TaskThatImmediatelyAborts;
+	import se.salomonsson.sequence.stubs.TaskThatReportsComplete;
 
 	import org.hamcrest.assertThat;
 	import org.hamcrest.collection.array;
@@ -141,6 +143,62 @@ package se.salomonsson.sequence {
 			assertThat(sequenceHandler.sequenceError, hasProperties({
 				errorText: "error",
 				errorId: 1
+			}));
+		}
+		
+		
+		[Test]
+		public function testAbort():void
+		{
+			var sequenceHandler:SequenceHandler 	= new SequenceHandler();
+			var task1:TaskThatReportsComplete 		= new TaskThatReportsComplete();
+			var task2:TaskWithManualTriggers 		= new TaskWithManualTriggers();
+			var task3:TaskWithManualTriggers 		= new TaskWithManualTriggers();
+			var task4:TaskThatReportsComplete		= new TaskThatReportsComplete();
+			
+			task3.taskAutoStart = false;
+			
+			var parallelTask:ParallelTask = new ParallelTask(task1, task2, task3, task4);
+			sequenceHandler.addSequentialTask(parallelTask);
+			sequenceHandler.start();
+			sequenceHandler.abort();
+			
+			var statuses:Array = [ sequenceHandler.status, parallelTask.status, task1.status, task2.status, task3.status, task4.status ];
+			assertThat(statuses, array(
+				Status.ABORTED,
+				Status.ABORTED,
+				Status.COMPLETED,
+				Status.ABORTED,
+				Status.SKIPPED,
+				Status.COMPLETED
+			));
+		}
+		
+		[Test]
+		public function testParallelTaskCallsAbortOnStartup():void
+		{
+			// if the first parallel task calls abort before the other task has even started yet, will both tasks get the abort() - and exeCleanUp()?
+			// exeCleanup() should never be called if exeStart has not been invoked!!
+			
+			var sequenceHandler:SequenceHandler = new SequenceHandler();
+			var parallelTask:ParallelTask = new ParallelTask();
+			var abortTask:TaskThatImmediatelyAborts = new TaskThatImmediatelyAborts();
+			var secondTask:TaskWithManualTriggers = new TaskWithManualTriggers();
+			
+			parallelTask.addTask(abortTask);
+			parallelTask.addTask(secondTask);
+			
+			sequenceHandler.addSequentialTask(parallelTask);
+			sequenceHandler.start();
+			
+			assertThat(abortTask, hasProperties( {
+				exeStartInvoked: equalTo(true),
+				exeCleanUpInvoked: equalTo(true)
+			}));
+			
+			assertThat(secondTask, hasProperties( {
+				exeStartInvoked: equalTo(false),
+				exeCleanUpInvoked: equalTo(false)
 			}));
 		}
 	}

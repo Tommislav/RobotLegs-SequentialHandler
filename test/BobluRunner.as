@@ -4,6 +4,7 @@ package
 	import com.boblu.lurunner.LURunner;
 	import flash.display.Sprite;
 	import org.flexunit.runner.FlexUnitCore;
+	import se.salomonsson.sequence.SequenceHandler;
 	
 	/**
 	 * ...
@@ -18,6 +19,7 @@ package
         override protected function setup():void
         {
 			Env.stage = stage;
+			SequenceHandler.debugStage = stage;
 			
             _allSuites     = [ MainTestSuite ];
             _runner     = new LURunner();

@@ -21,6 +21,7 @@ package se.salomonsson.sequence
 	import flash.events.ErrorEvent;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
+	import flash.utils.describeType;
 	import flash.utils.getQualifiedClassName;
 
 	/**
@@ -32,11 +33,13 @@ package se.salomonsson.sequence
 		public static const TASK_COMPLETE:String = "TaskSequence::taskComplete";
 		public static const TASK_ERROR:String = "TaskSequence::taskError";
 		public static const TASK_ABORT:String = "TaskSequence::taskAbort";
-
-
+		
+		
 		// optimize RL-injections
 		internal var initiated:Boolean = false;
-
+		
+		private var _preconditionEvaluators:Array = [];
+		
 		/**
 		 * Override to add logic if you want your Task to start or not.
 		 * Called just before onStart is invoked
@@ -44,15 +47,36 @@ package se.salomonsson.sequence
 		 */
 		public function wantsToStart():Boolean
 		{ return true; }
-
-
+		
+		internal function internalWantsToStart():Boolean 
+		{
+			for each(var f:Function in _preconditionEvaluators) {
+				if (!f()) {
+					wipePreconditions();
+					return false;
+				}
+			}
+			wipePreconditions();
+			return wantsToStart();
+		}
+		
+		private function wipePreconditions():void {
+			_preconditionEvaluators = [];
+		}
+		
+		public final function addPreCondition(f:Function):SequentialTask {
+			_preconditionEvaluators.push(f);
+			return this;
+		}
+		
+		
 		protected function exeStart():void {}
-
+		
 		protected function exeAbort():void { }
-
+		
 		protected function exeCleanUp():void {} // called both after complete, abort and error
-
-
+		
+		
 		protected final function abortThisTaskAndRestOfSequence():void
 		{
 			dispatchEvent(new Event(TASK_ABORT));
@@ -64,28 +88,29 @@ package se.salomonsson.sequence
 			dispatchEvent(new Event(TASK_COMPLETE));
 			exeCleanUp();
 		}
-
+		
 		protected final function onError(errorMessage:String, errorId:int = 0):void
 		{
 			_status = Status.ERROR;
 			dispatchEvent(new ErrorEvent(TASK_ERROR, false, false, errorMessage, errorId));
 			exeCleanUp();
 		}
-
-
+		
+		
 		public final function start():void
 		{
 			_status = Status.RUNNING;
 			exeStart();
 		}
-
+		
 		public final function abort():void
 		{
 			_status = Status.ABORTED;
+			dispatchEvent(new Event(TASK_ABORT));
 			exeAbort();
 			exeCleanUp();
 		}
-
+		
 		public final function skip():void
 		{
 			_status = Status.SKIPPED;

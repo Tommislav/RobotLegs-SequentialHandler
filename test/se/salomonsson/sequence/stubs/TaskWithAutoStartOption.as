@@ -9,6 +9,7 @@ package se.salomonsson.sequence.stubs
 	{
 		public var autoStart:Boolean = true;
 		
+		
 		override public function wantsToStart():Boolean 
 		{
 			return autoStart;

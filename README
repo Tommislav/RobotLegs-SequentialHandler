@@ -15,3 +15,18 @@ If you pass an instance of IInjector (Robotlegs) to the SequenceHandler, then [I
 
 If you are using Robotlegs you can use the se.salomonsson.sequence.robotlegs.SequenceCommand which will automatically
 call commandMap.detain() and commandMap.release(), and also listens for ContextEvent.SHUTDOWN and aborts the current sequence.
+
+
+
+Changelog: 
+
+v 0.5
+Bugfix if the first sub-task in a parallelTask calls abort, then the parallelTask should not proceed to the next task, 
+and definetly not try to kill it since it hasn't started yet.
+
+v 0.4
+added a addPreCondition(boolMethod:Function) to base task, so we can set up common preconditions for several tasks when
+defining our task sequence
+
+v 0.3
+added compositeTask, a task that contains a sequenceHandler. Use with caution, becaues they tend to be nasty to debug =)
