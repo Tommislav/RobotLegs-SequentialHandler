@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2012 Tommislav
  *
@@ -23,7 +22,9 @@ package se.salomonsson.sequence
 	import flash.events.ErrorEvent;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
+	import flash.events.IEventDispatcher;
 	import flash.events.KeyboardEvent;
+	import se.salomonsson.sequence.EventBus;
 
 	import org.robotlegs.core.IInjector;
 
@@ -53,6 +54,9 @@ package se.salomonsson.sequence
 			if (s != null) 
 				_DEBUG_STAGE = s; 
 		}
+
+		private static var _DEBUG_OUT:IDebugOutputAdapter = new TraceDebugOutputAdapter();
+		public static function set debugOutputAdapter(adapter:IDebugOutputAdapter):void { _DEBUG_OUT = adapter; }
 		
 		public function SequenceHandler(injector:IInjector = null)
 		{
@@ -62,8 +66,16 @@ package se.salomonsson.sequence
 
 		public function addSequentialTask(task:SequentialTask):SequentialTask
 		{
+			task.setSharedEventDispatcher(getSharedDispatcher());
 			_taskSequence.push(task);
 			return task;
+		}
+		
+		private function getSharedDispatcher():IEventDispatcher
+		{
+			if (_injector && _injector.hasMapping(IEventDispatcher))
+				return _injector.getInstance(IEventDispatcher);
+			return null;
 		}
 
 		/**
@@ -274,7 +286,7 @@ package se.salomonsson.sequence
 		{
 			var keycodeF1:uint = 112;
 			if (e.keyCode == keycodeF1)
-				trace(debug());
+				_DEBUG_OUT.log(debug());
 		}
 		
 		public function get numTasks():int { return (_taskSequence != null) ? _taskSequence.length : 0; }

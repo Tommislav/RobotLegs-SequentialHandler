@@ -15,32 +15,22 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
  * DEALINGS IN THE SOFTWARE.
  */
-package se.salomonsson.sequence {
-	import flash.events.EventDispatcher;
-	import flash.utils.getQualifiedClassName;
 
+package se.salomonsson.sequence 
+{
+	import flash.events.Event;
+	
 	/**
-	 * Base class for all sequence classes.
-	 *
+	 * Interface for dispatching events from tasks through the global robotlegs event bus
 	 * @author Tommislav
 	 */
-	public class SequenceBase extends EventDispatcher {
-
-		protected var _status:String = Status.NOT_STARTED;
-		public final function get status():String 			{ return _status; }
-		public final function get isRunning():Boolean 		{ return _status == Status.RUNNING; }
-		public final function get isStarted():Boolean 		{ return _status != Status.NOT_STARTED; }
-		public final function get isCompleted():Boolean 	{ return _status == Status.COMPLETED; }
-
-		private var _name:String = "";
-		public function setName(name:String):void { _name = name; }
-		public function get name():String { return _name == "" ? getQualifiedClassName(this) : _name; }
-
-		
-		public function debug():String
-		{
-			return "["+name+"] status: " + _status;
-		}
-		
+	public interface IEventBus 
+	{
+		function addListener(type:String, listener:Function, eventClass:Class = null):void;
+		function removeListener(type:String, listener:Function, eventClass:Class = null):void;
+		function removeAllListeners():void;
+		function dispatch(e:Event):void;
+		function destroy():void;
 	}
+	
 }

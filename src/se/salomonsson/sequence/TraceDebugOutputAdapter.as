@@ -16,31 +16,15 @@
  * DEALINGS IN THE SOFTWARE.
  */
 package se.salomonsson.sequence {
-	import flash.events.EventDispatcher;
-	import flash.utils.getQualifiedClassName;
 
 	/**
-	 * Base class for all sequence classes.
-	 *
+	 * The default debug logging adapter
 	 * @author Tommislav
 	 */
-	public class SequenceBase extends EventDispatcher {
+	public class TraceDebugOutputAdapter implements IDebugOutputAdapter {
 
-		protected var _status:String = Status.NOT_STARTED;
-		public final function get status():String 			{ return _status; }
-		public final function get isRunning():Boolean 		{ return _status == Status.RUNNING; }
-		public final function get isStarted():Boolean 		{ return _status != Status.NOT_STARTED; }
-		public final function get isCompleted():Boolean 	{ return _status == Status.COMPLETED; }
-
-		private var _name:String = "";
-		public function setName(name:String):void { _name = name; }
-		public function get name():String { return _name == "" ? getQualifiedClassName(this) : _name; }
-
-		
-		public function debug():String
-		{
-			return "["+name+"] status: " + _status;
+		public function log(str:String):void {
+			trace(str);
 		}
-		
 	}
 }

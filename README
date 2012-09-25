@@ -19,6 +19,14 @@ call commandMap.detain() and commandMap.release(), and also listens for ContextE
 
 
 Changelog: 
+v 0.6
+First added an EventBus (commonly used in robotlegs) so we can dispatch, addListener, removeListener and 
+removeAllListeners from tasks in the same way as it does in Commands and Mediators. Auto-cleans up all listeners
+internally after exeComplete has been called. Not the most elegant solution, but all unittests run, so maybe a 
+refactoring round up next.
+
+Also added a IDebugOutputAdapter so we can log debug messages to other targets than just simple trace() when F1 is
+pressed.
 
 v 0.5
 Bugfix if the first sub-task in a parallelTask calls abort, then the parallelTask should not proceed to the next task, 

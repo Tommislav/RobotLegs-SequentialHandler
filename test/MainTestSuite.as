@@ -2,8 +2,10 @@
 {
 	import se.salomonsson.sequence.TestCompositeTask;
 	import se.salomonsson.sequence.TestParallelTask;
+	import se.salomonsson.sequence.TestEventBus;
 	import se.salomonsson.sequence.TestSequenceHandler;
 	import se.salomonsson.sequence.TestTasksWithPreCondition;
+	import se.salomonsson.sequence.TestTaskWithEventBus;
 	
 	
 	/**
@@ -16,6 +18,8 @@
 	{
 		
 		public var asyncTest:TestSequenceHandler;
+		public var testTaskWithRobotlegsDispatcher:TestTaskWithEventBus;
+		public var robotlegsDispatchHelperTest:TestEventBus;
 		public var testParallelTask:TestParallelTask;
 		public var testCompositeTask:TestCompositeTask;
 		public var testTaskWithPreCondition:TestTasksWithPreCondition;
