@@ -28,6 +28,9 @@ refactoring round up next.
 Also added a IDebugOutputAdapter so we can log debug messages to other targets than just simple trace() when F1 is
 pressed.
 
+CompositeTasks now has a method called "abortChildTasksAndProceed()" which will call abort on all composite tasks, but
+not treat the compositeTask as if it was actually completed, so that the rest of the task sequence can proceed as usual.
+
 v 0.5
 Bugfix if the first sub-task in a parallelTask calls abort, then the parallelTask should not proceed to the next task, 
 and definetly not try to kill it since it hasn't started yet.

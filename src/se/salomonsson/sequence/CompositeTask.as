@@ -102,6 +102,13 @@ package se.salomonsson.sequence
 			}
 		}
 		
+		public function abortChildTasksAndProceed():void 
+		{
+			_sequenceHandler.removeEventListener(Status.ABORTED, onCompositeAborted);
+			_sequenceHandler.abort();
+			onCompleted();
+		}
+		
 		override public function debug():String 
 		{
 			var myDebug:String = super.debug();
@@ -110,5 +117,4 @@ package se.salomonsson.sequence
 			return "<" + myDebug + " children=(\n  " + sequenceDebug + ")>";
 		}
 	}
-
 }

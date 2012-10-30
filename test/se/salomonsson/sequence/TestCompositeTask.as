@@ -186,5 +186,20 @@ package se.salomonsson.sequence
 			
 			assertThat(childTask1, hasProperty("exeAbortInvoked", equalTo(true)));
 		}
+		
+		[Test]
+		public function testAbortCompositeChildOnly():void {
+			var childTask1:TaskWithManualTriggers = new TaskWithManualTriggers();
+			var childTask2:TaskThatReportsComplete = new TaskThatReportsComplete();
+			var composite:CompositeTask = new CompositeTask(childTask1, childTask2);
+			_sequenceHandler.addSequentialTask(composite);
+			_sequenceHandler.start();
+			
+			composite.abortChildTasksAndProceed();
+			
+			assertThat([childTask1.status, childTask2.status, composite.status, _sequenceHandler.status],
+				array(Status.ABORTED, Status.NOT_STARTED, Status.COMPLETED, Status.COMPLETED)
+			);
+		}
 	}
 }
