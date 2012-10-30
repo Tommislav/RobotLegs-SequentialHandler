@@ -24,7 +24,6 @@ package se.salomonsson.sequence
 	import flash.events.EventDispatcher;
 	import flash.events.IEventDispatcher;
 	import flash.events.KeyboardEvent;
-	import se.salomonsson.sequence.EventBus;
 
 	import org.robotlegs.core.IInjector;
 
