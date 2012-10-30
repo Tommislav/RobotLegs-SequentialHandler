@@ -21,7 +21,7 @@ package
 			Env.stage = stage;
 			SequenceHandler.debugStage = stage;
 			
-            _allSuites     = [ MainTestSuite ];
+            _allSuites     = [ RobotLegsSequentialHandlerTestSuite ];
             _runner     = new LURunner();
             addChild( _runner );
         }

@@ -45,6 +45,7 @@ package se.salomonsson.sequence
 	import org.hamcrest.collection.array;
 	import org.hamcrest.object.equalTo;
 	import org.hamcrest.object.hasProperties;
+	import org.hamcrest.object.hasProperty;
 	import org.hamcrest.text.containsString;
 	import org.robotlegs.adapters.SwiftSuspendersInjector;
 	import org.robotlegs.core.IInjector;
@@ -151,7 +152,7 @@ package se.salomonsson.sequence
 		}
 		
 		[Test]
-		public function testAbort():void 
+		public function testAbortOnCompositeChildTask():void 
 		{
 			var childTask1:TaskWithManualTriggers = new TaskWithManualTriggers();
 			var childTask2:TaskThatReportsComplete = new TaskThatReportsComplete();
@@ -165,6 +166,25 @@ package se.salomonsson.sequence
 			assertThat([childTask1.status, childTask2.status, composite.status, _sequenceHandler.status], 
 				array(Status.ABORTED, Status.NOT_STARTED, Status.ABORTED, Status.ABORTED)
 			);
+		}
+		
+		[Test]
+		public function testAbortOnCompositeTask():void 
+		{
+			var childTask1:TaskWithManualTriggers = new TaskWithManualTriggers();
+			var childTask2:TaskThatReportsComplete = new TaskThatReportsComplete();
+			
+			var composite:CompositeTask = new CompositeTask(childTask1, childTask2);
+			_sequenceHandler.addSequentialTask(composite);
+			_sequenceHandler.start();
+			
+			composite.abort();
+			
+			assertThat([childTask1.status, childTask2.status, composite.status, _sequenceHandler.status], 
+				array(Status.ABORTED, Status.NOT_STARTED, Status.ABORTED, Status.ABORTED)
+			);
+			
+			assertThat(childTask1, hasProperty("exeAbortInvoked", equalTo(true)));
 		}
 	}
 }

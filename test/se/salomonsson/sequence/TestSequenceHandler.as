@@ -154,6 +154,7 @@ package se.salomonsson.sequence
 
 			_sequenceHandler.start();
 			task1.callComplete();
+			
 			assertThat(task1, hasProperties({
 				exeStartInvoked  :true,
 				exeAbortInvoked  :false,
@@ -161,6 +162,7 @@ package se.salomonsson.sequence
 			}));
 
 			_sequenceHandler.abort();
+			
 			assertThat(task2, hasProperties({
 				exeStartInvoked  :true,
 				exeAbortInvoked  :true,
