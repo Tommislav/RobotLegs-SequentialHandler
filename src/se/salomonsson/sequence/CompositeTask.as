@@ -60,6 +60,7 @@ package se.salomonsson.sequence
 			if (_sequenceHandler == null)
 			{
 				_sequenceHandler = new SequenceHandler(injector);
+				_sequenceHandler.setName("Composite task of: [" + this.toString() + "]");
 				_sequenceHandler.addEventListener(Event.COMPLETE, onCompositeCompleted);
 				_sequenceHandler.addEventListener(Status.ABORTED, onCompositeAborted);
 				_sequenceHandler.addEventListener(ErrorEvent.ERROR, onCompositeError);
