@@ -7,8 +7,12 @@ package se.salomonsson.sequence
 	import org.hamcrest.object.equalTo;
 	import org.hamcrest.object.hasProperty;
 	import se.salomonsson.sequence.stubs.DispatchTask;
+	import se.salomonsson.sequence.stubs.TaskThatImmediatelyAborts;
+	import se.salomonsson.sequence.stubs.TaskThatReportsComplete;
+	import se.salomonsson.sequence.stubs.TaskWithAutoStartOption;
+	import se.salomonsson.sequence.stubs.TaskWithManualTriggers;
 	/**
-	 * The tasks themselves should be easy to test of course!!!
+	 * The that a task by itself is testable. So that you can actually unittest your tasks.
 	 * @author Tommy Salomonsson
 	 */
 	public class TestThatTaskIsTestable 
@@ -51,7 +55,28 @@ package se.salomonsson.sequence
 		}
 		
 		
+		[Test]
+		public function testTaskCallsCompleteByItself():void {
+			var task:TaskThatReportsComplete = new TaskThatReportsComplete();
+			task.addEventListener(SequentialTask.TASK_COMPLETE, recordEvent);
+			task.start();
+			
+			assertThat(_event, hasProperty("type", equalTo(SequentialTask.TASK_COMPLETE)));
+			
+			// clean up
+			task.removeEventListener(SequentialTask.TASK_COMPLETE, recordEvent);
+		}
 		
+		[Test]
+		public function testTaskCallsAbortByItself():void {
+			var task:TaskThatImmediatelyAborts = new TaskThatImmediatelyAborts();
+			task.addEventListener(SequentialTask.TASK_ABORT, recordEvent);
+			task.start();
+			
+			assertThat(_event, hasProperty("type", equalTo(SequentialTask.TASK_ABORT)));
+			
+			// clean up
+			task.removeEventListener(SequentialTask.TASK_COMPLETE, recordEvent);
+		}
 	}
-
 }
