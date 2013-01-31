@@ -115,7 +115,7 @@ package se.salomonsson.sequence {
 
 		
 		// not very elegant... but would like to be able to avoid [Inject] e:IEventDispatcher... =/
-		internal function setSharedEventDispatcher(sharedDispatcher:IEventDispatcher):void {
+		public function setSharedEventDispatcher(sharedDispatcher:IEventDispatcher):void {
 			_eventBus.setSharedEventDispatcher(sharedDispatcher);
 		}
 		

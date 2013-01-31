@@ -2,7 +2,7 @@
 	
 	<property file="build.properties"/>
 	<taskdef resource="flexTasks.tasks" classpath="${flex.task}"/>
-	<property name="version" value="0.6" />
+	<property name="version" value="0.7" />
 	
 	<target name="debug" description="Build testrunner lib for debugging">
 		<compc output="bin/AsyncHandler-v${version}.swc" target-player="${player.version}">
