@@ -19,6 +19,11 @@ call commandMap.detain() and commandMap.release(), and also listens for ContextE
 
 
 Changelog: 
+
+v 0.7.1
+Bugfix - could not dispatch events through shared eventDispatcher in parallelTasks
+
+
 v 0.7
 For some stupid reason the eventdispatcher introduced in v0.6 was only settable from a method with the internal
 namespace, wich made it impossible to test a single task that was dispatching events. If everything in this
